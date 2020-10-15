@@ -7,17 +7,17 @@ let lettersArray = Array.from(letters);
 //console.log(lettersArray);
 //testing to see that the letters created the array
 
-let lettersClass = document.querySelector('.letters');
+let lettersClass = document.querySelector(".letters");
 //select letters class 
 
 lettersArray.forEach(letter => {
-    let span = document.createElement('span');
+    let span = document.createElement("span");
     //create span 
     let theLetters = document.createTextNode(letter);
     //create letter text node
     span.appendChild(theLetters);
     //appends the letter to span
-    span.className = 'letter-box';
+    span.className = "letter-box";
     //add class to span
     lettersClass.appendChild(span);
 })
@@ -36,16 +36,17 @@ let allKeys = Object.keys(words);
 // 
 
 let randomnPropNumber = Math.floor(Math.random()* allKeys.length);
-// get randomn category hopefully from words which is allkeys now
+// get randomn category hopefully from words which is allkeys now 
 let randomPropName = allKeys[randomnPropNumber];
+//categories
 let randomPropValue = words[randomPropName];
-
+//categories words
 let randomValueNumber= Math.floor(Math.random() * randomPropValue.length);
 // this line of code choose the indice from one of the category arrays for the game
 let randomValue2= randomPropName[randomValueNumber];
+//the chosen word for the game
 
 //console.log(randomnPropNumber)
-
 //console.log(allKeys[0])
 //console.log(allKeys[2])
 //test to see that a category is pulled up
@@ -57,3 +58,6 @@ let randomValue2= randomPropName[randomValueNumber];
 //console.log(randomPropValue[2]) shows the indice from a random category 
 //console.log(randomPropValue[randomValueNumber])
 // does the same thing as the console log prior without entering an indice myself and make it randomized
+
+document.querySelector(".game-info .category span").innerHTML = randomPropName;
+//generates word from: "categories" for the game
