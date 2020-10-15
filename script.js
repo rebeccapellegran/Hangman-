@@ -20,7 +20,7 @@ lettersArray.forEach(letter => {
     span.className = "letter-box";
     //add class to span
     lettersClass.appendChild(span);
-})
+});
 //Generates the letters for Hangman!
 //OMG IT WORKEDD!!!!!
 
@@ -35,7 +35,7 @@ let allKeys = Object.keys(words);
 //console.log(allKeys)
 // 
 
-let randomnPropNumber = Math.floor(Math.random()* allKeys.length);
+let randomnPropNumber = Math.floor(Math.random() * allKeys.length);
 // get randomn category hopefully from words which is allkeys now 
 let randomPropName = allKeys[randomnPropNumber];
 //categories
@@ -43,7 +43,7 @@ let randomPropValue = words[randomPropName];
 //categories words
 let randomValueNumber= Math.floor(Math.random() * randomPropValue.length);
 // this line of code choose the indice from one of the category arrays for the game
-let randomValue2= randomPropName[randomValueNumber];
+let randomValue2= randomPropValue[randomValueNumber];
 //the chosen word for the game
 
 //console.log(randomnPropNumber)
@@ -56,8 +56,55 @@ let randomValue2= randomPropName[randomValueNumber];
 //console.log(randomValueNumber)
 
 //console.log(randomPropValue[2]) shows the indice from a random category 
-//console.log(randomPropValue[randomValueNumber])
+//console.log(randomPropValue[randomValueNumber]) - the answer that is the chosen word
 // does the same thing as the console log prior without entering an indice myself and make it randomized
 
 document.querySelector(".game-info .category span").innerHTML = randomPropName;
 //generates word from: "categories" for the game
+
+let lettersGuessClass = document.querySelector(".letters-guess");
+//  create chosen word to a guess element 
+let lettersAndSpace = Array.from(randomValue2);
+//convert chosen word to an array
+lettersAndSpace.forEach(letter => {
+    let emptySpan = document.createElement("span");
+    //create an empty span
+    if (letter === " " ) {
+        emptySpan.className = "with-space";
+        //add class to the span
+    }
+    lettersGuessClass.appendChild(emptySpan);
+    //appends span to the letter guess class
+});
+let guessSpans = document.querySelectorAll(".letters-guess span");
+//select a guess span
+
+let theStatus = false;
+//setting a choose status 
+
+document.addEventListener("click", (e) => {
+    if (e.target.className === "letter-box") {
+        e.target.classList.add("clicked");
+
+        //clicks on the letter
+
+    let clickedLetter = e.target.innerHTML.toLowerCase();
+    let theChosenWord = Array.from(randomValue2.toLowerCase());
+    theChosenWord.forEach((wordLetter, WordIndex) => {
+         if (clickedLetter == wordLetter){
+            theStatus = true;
+            //setting the choose status from false to true now for the loop
+
+         guessSpans.forEach((span, spanIndex) => {
+            if(WordIndex === spanIndex) {
+               span.innerHTML = clickedLetter;
+                }
+            });
+
+            }
+        });
+       console.log(theStatus);
+//outside loop
+
+    }
+});
