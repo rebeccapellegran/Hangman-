@@ -5,7 +5,7 @@
     
 
   body {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:fantasy;
     background-color: lavender;
 
   }
@@ -26,6 +26,8 @@
     flex: 1;
     color: #009688;
     font-size: 32px;
+    text-transform: uppercase;
+    
   }
   .game-info .category {
     flex: 1;
@@ -241,7 +243,7 @@
   }
   .popup {
     position: fixed;
-    background-color:#009688; 
+    background-color:#E91E63; 
     padding: 100px 20px;
     width: 80%;
     top: 10%;
@@ -251,3 +253,21 @@
     border: 1px solid #CCC;
     color: #cacaca;
   }
+.refresh-button {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: #009688;
+    color: #FFF;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    font-family: fantasy;
+
+}
+.creator {
+    font-size: 10px;
+    font-family: fantasy;
+    color: #009688;
+    text-align: center;

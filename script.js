@@ -114,8 +114,33 @@ document.addEventListener("click", (e) => {
 
     wrongAttempts++;
     theHangmanDraw.classList.add(`wrong-${wrongAttempts}`);
+    if(wrongAttempts === 8) {
+        endGame();
+     lettersClass.classList.add("finished")   
+    }
     }
  }  
 });
 // draws the hangman with every wrong click of the wrong letter
 
+
+function endGame() {
+    let div =document.createElement("div")
+    let divText = document.createTextNode (`Game Over, the word was: ${randomValue2}`);
+    div.appendChild(divText);
+    div.className = 'popup';
+    document.body.appendChild(div);
+
+}
+
+
+// ends game
+
+const refreshButton = document.querySelector('.refresh-button');
+
+const refreshPage = () => {
+  location.reload();
+}
+
+refreshButton.addEventListener('click', refreshPage)
+// refreshes page
