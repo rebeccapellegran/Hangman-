@@ -79,10 +79,14 @@ lettersAndSpace.forEach(letter => {
 let guessSpans = document.querySelectorAll(".letters-guess span");
 //select a guess span
 
-let theStatus = false;
-//setting a choose status 
+let wrongAttempts = 0;
+
+let theHangmanDraw = document.querySelector(".hangman-draw");
+
 
 document.addEventListener("click", (e) => {
+    let theStatus = false;
+
     if (e.target.className === "letter-box") {
         e.target.classList.add("clicked");
 
@@ -103,8 +107,15 @@ document.addEventListener("click", (e) => {
 
             }
         });
-       console.log(theStatus);
+ 
 //outside loop
+//if letter is wrong
+    if (theStatus !== true) {
 
+    wrongAttempts++;
+    theHangmanDraw.classList.add(`wrong-${wrongAttempts}`);
     }
+ }  
 });
+// draws the hangman with every wrong click of the wrong letter
+
