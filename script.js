@@ -36,11 +36,24 @@ let allKeys = Object.keys(words);
 // 
 
 let randomnPropNumber = Math.floor(Math.random()* allKeys.length);
-//console.log(randomnPropNumber)
 // get randomn category hopefully from words which is allkeys now
+let randomPropName = allKeys[randomnPropNumber];
+let randomPropValue = words[randomPropName];
 
+let randomValueNumber= Math.floor(Math.random() * randomPropValue.length);
+// this line of code choose the indice from one of the category arrays for the game
+let randomValue2= randomPropName[randomValueNumber];
 
+//console.log(randomnPropNumber)
 
+//console.log(allKeys[0])
+//console.log(allKeys[2])
+//test to see that a category is pulled up
+//console.log(randomPropName);
+//console.log(words["countries"])
+//console.log(randomPropValue)
+//console.log(randomValueNumber)
 
-
-
+//console.log(randomPropValue[2]) shows the indice from a random category 
+//console.log(randomPropValue[randomValueNumber])
+// does the same thing as the console log prior without entering an indice myself and make it randomized
